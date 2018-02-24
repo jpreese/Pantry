@@ -2,9 +2,39 @@
 
 <html>
 <head>
-    <title>A Page</title>
+    <title>Pantry</title>
+    <link type="text/css" rel="stylesheet" href="https://bootswatch.com/lumen/bootstrap.min.css"/>
 </head>
 <body>
-    @RenderBody()
+
+    <!-- top nav bar -->
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="../" class="navbar-brand">Pantry</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar">Kitchen</span>
+                    <span class="icon-bar">Wiki</span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Your Kitchen</a>
+                    </li>
+                    <li>
+                        <a href="#">Wiki</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/jpreese/Pantry" target="_blank">fork on github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
 </body>
 </html>

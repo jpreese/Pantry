@@ -1,15 +1,24 @@
-﻿var app = angular.module('pantryModule', ['ngRoute']);
+﻿(function() {
 
-app.config(function ($routeProvider, $locationProvider) {
+    var app = angular.module('pantryModule', ['ngRoute']);
 
-    $routeProvider.when('/login',
-    {
-        templateUrl: '/App/Partials/Login.html'
-    })
-    .otherwise(
-    {
-        redirectTo: '/'
+    app.config(function($routeProvider, $locationProvider) {
+
+        var partialsDirectoryBase = "/App/Partials/";
+        $routeProvider.when('/',
+        {
+            templateUrl: partialsDirectoryBase + 'Login.html'
+        })
+        .when('/kitchen',
+        {
+            templateUrl: partialsDirectoryBase + 'Kitchen.html'
+        })
+        .otherwise(
+        {
+            redirectTo: '/login'
+        });
+
+        $locationProvider.html5Mode(true);
     });
 
-    $locationProvider.html5Mode(true);
-});
+})();

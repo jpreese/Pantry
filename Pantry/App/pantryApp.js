@@ -1,6 +1,6 @@
 ﻿var app = angular.module('pantryModule', ['ngRoute']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
 
     $routeProvider.when('/login',
     {
@@ -11,4 +11,5 @@ app.config(function ($routeProvider) {
         redirectTo: '/'
     });
 
+    $locationProvider.html5Mode(true);
 });

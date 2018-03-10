@@ -28,5 +28,15 @@ namespace Pantry.Controllers
 
             return Ok(recipe);
         }
+
+        public IHttpActionResult GetRecipes()
+        {
+            if (db.Recipe.Any() == false)
+            {
+                return NotFound();
+            }
+
+            return Ok(db.Recipe);
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace Pantry.Controllers
 {
     public class RecipesController : ApiController
     {
-        private RecipesContext db = new RecipesContext();
+        private DataContext db = new DataContext();
 
         protected override void Dispose(bool disposing)
         {

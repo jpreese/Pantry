@@ -12,7 +12,7 @@ namespace Pantry
 
         public AuthRepository()
         {
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new AuthContext()));
+            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new DataContext()));
         }
 
         public async Task<IdentityResult> RegisterUser(User userModel)

@@ -8,16 +8,6 @@ namespace Pantry.Controllers
     {
         private DataContext db = new DataContext();
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
-
         public IHttpActionResult GetRecipe(int id)
         {
             var recipe = db.Recipe.FirstOrDefault(r => r.RecipeId == id);

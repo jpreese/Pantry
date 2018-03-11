@@ -4,11 +4,11 @@ using Pantry.Models;
 
 namespace Pantry.Controllers
 {
-    public class AccountController : ApiController
+    public class AccountsController : ApiController
     {
         private readonly AuthRepository _authRepository;
 
-        public AccountController()
+        public AccountsController()
         {
             _authRepository = new AuthRepository();
         }

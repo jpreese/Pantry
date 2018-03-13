@@ -1,20 +1,17 @@
 using Pantry.Models;
+using Pantry.Context;
+using System.Data.Entity.Migrations;
 
 namespace Pantry.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Pantry.Context.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Pantry.Context.DataContext context)
+        protected override void Seed(DataContext context)
         {
             context.Recipe.AddOrUpdate(new Recipe { RecipeId = 1, Name = "Bread", Category = "Snack"});
             context.Recipe.AddOrUpdate(new Recipe { RecipeId = 2, Name = "Cheese Pizza", Category = "Dinner" });
@@ -27,7 +24,6 @@ namespace Pantry.Migrations
             context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 5, Name = "Chocolate" });
             context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 6, Name = "Milk" });
 
-            // bread
             context.RecipeIngredient.AddOrUpdate(new RecipeIngredient { RecipeIngredientId = 1, RecipeId = 1, IngredientId = 1 });
             context.RecipeIngredient.AddOrUpdate(new RecipeIngredient { RecipeIngredientId = 1, RecipeId = 1, IngredientId = 4 });
             context.RecipeIngredient.AddOrUpdate(new RecipeIngredient { RecipeIngredientId = 1, RecipeId = 1, IngredientId = 6 });

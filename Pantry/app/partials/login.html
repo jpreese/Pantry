@@ -6,18 +6,18 @@
                 <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" data-ng-model="loginData.userName">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                     <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" data-ng-model="loginData.password">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" data-ng-click="login()">Submit</button>
                         <span class="help-block">If you do not already have an account, one will be created for you.</span>
                     </div>
                 </div>
@@ -29,4 +29,3 @@
         <a href="/kitchen">Your Kitchen</a>
     </div>
 </div>
-

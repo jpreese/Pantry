@@ -185,19 +185,6 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="app\controllers\recipeController.js" />
-    <Content Include="app\controllers\loginController.js" />
-    <Content Include="app\pantryApp.js" />
-    <Content Include="app\partials\kitchen.html" />
-    <Content Include="app\services\authInterceptorService.js" />
-    <Content Include="app\services\authService.js" />
-    <Content Include="app\services\recipesService.js" />
-    <Content Include="scripts\angular-local-storage.js" />
-    <Content Include="scripts\angular-mocks.js" />
-    <Content Include="scripts\angular-route.js" />
-    <Content Include="scripts\angular-route.min.js" />
-    <Content Include="scripts\angular.js" />
-    <Content Include="scripts\angular.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -214,15 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="app\partials\login.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="scripts\angular.min.js.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="scripts\angular-route.min.js.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,56 +1,9 @@
 ﻿<!DOCTYPE html>
-
-<html data-ng-app="pantryModule">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Pantry</title>
-    <link type="text/css" rel="stylesheet" href="https://bootswatch.com/lumen/bootstrap.min.css"/>
+    <title></title>
 </head>
 <body>
 
-    <div class="navbar navbar-default" data-ng-controller="loginController">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="/" class="navbar-brand">Pantry</a>
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/kitchen" data-ng-hide="!authentication.isAuth">Your Kitchen</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-ng-hide="!authentication.isAuth" data-ng-click="logOut()">logout</a></li>
-                    <li><a href="https://github.com/jpreese/Pantry" target="_blank">fork on github</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div data-ng-view=""></div>
-    </div>
-
-    <!-- third party -->
-    <script src="scripts/angular.js"></script>
-    <script src="scripts/angular-route.js"></script>
-    <script src="scripts/angular-local-storage.js"></script>
-
-    <script src="app/pantryApp.js"></script>
-
-    <!-- services -->
-    <script src="app/services/authService.js"></script>
-    <script src="app/services/authInterceptorService.js"></script>
-
-    <!-- controllers -->
-    <script src="app/controllers/loginController.js"></script>
-    <script src="app/controllers/recipeController.js"></script>
 </body>
 </html>

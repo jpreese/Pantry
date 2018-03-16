@@ -19,6 +19,10 @@
          });
     };
 
+    $scope.close = function () {
+        $scope.message = "";
+    };
+
     $scope.logOut = authService.logOut;
 
     $scope.authentication = authService.authentication;

@@ -1,4 +1,4 @@
-﻿app.factory('authService', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
+﻿app.factory('authService', ['$http', '$q', 'localStorageService', '$location', function ($http, $q, localStorageService, $location) {
 
     var serviceBase = 'http://localhost:18396/';
     var authServiceFactory = {};
@@ -44,10 +44,12 @@
 
     var _logOut = function () {
 
-        localStorageService.remove('authorizationData');
+        localStorageService.remove("authorizationData");
 
         _authentication.isAuth = false;
         _authentication.userName = "";
+
+        $location.path("/");
 
     };
 

@@ -171,9 +171,6 @@
     <Compile Include="Context\DataContext.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Recipe.cs" />
@@ -188,7 +185,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app\pantryApp.js" />
     <Content Include="app\partials\kitchen.html" />
-    <Content Include="Global.asax" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />
     <Content Include="scripts\angular-route.min.js" />

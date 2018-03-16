@@ -7,3 +7,6 @@ Pantry/App_Data/
 Pantry.Web/bin/
 Pantry.Web/Web.Debug.config
 Pantry.Web/obj/
+Pantry.Api/bin/
+Pantry.Api/obj/
+Pantry.Api/App_Data/

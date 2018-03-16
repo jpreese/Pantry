@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <div class="navbar navbar-default">
+    <div class="navbar navbar-default" data-ng-controller="loginController">
         <div class="container">
             <div class="navbar-header">
                 <a href="/" class="navbar-brand">Pantry</a>
@@ -20,13 +20,14 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/kitchen">Your Kitchen</a>
+                        <a href="/kitchen" data-ng-hide="!authentication.isAuth">Your Kitchen</a>
                     </li>
                     <li>
-                        <a href="#">Wiki</a>
+                        <a href="#">About</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-ng-hide="!authentication.isAuth" data-ng-click="logOut()">logout</a></li>
                     <li><a href="https://github.com/jpreese/Pantry" target="_blank">fork on github</a></li>
                 </ul>
             </div>
@@ -46,8 +47,10 @@
 
     <!-- services -->
     <script src="app/services/authService.js"></script>
+    <script src="app/services/authInterceptorService.js"></script>
 
     <!-- controllers -->
     <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/recipeController.js"></script>
 </body>
 </html>

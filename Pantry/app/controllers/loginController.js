@@ -19,4 +19,8 @@
          });
     };
 
+    $scope.logOut = authService.logOut;
+
+    $scope.authentication = authService.authentication;
+
 }]);

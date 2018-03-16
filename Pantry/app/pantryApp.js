@@ -1,6 +1,6 @@
 ﻿var app = angular.module("pantryModule", ["ngRoute", "LocalStorageModule"]);
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function($routeProvider, $locationProvider, $httpProvider) {
 
     var partialsDirectoryBase = "/app/partials/";
     $routeProvider.when("/",
@@ -14,7 +14,7 @@ app.config(function($routeProvider, $locationProvider) {
     })
     .otherwise(
     {
-        redirectTo: "/login"
+        redirectTo: "/"
     });
 
     $locationProvider.html5Mode(
@@ -22,8 +22,11 @@ app.config(function($routeProvider, $locationProvider) {
         enabled: true,
         requireBase: false
     });
+
+    $httpProvider.interceptors.push('authInterceptorService');
 });
 
 app.run(['authService', function (authService) {
     authService.fillAuthData();
 }]);
+

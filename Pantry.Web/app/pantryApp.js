@@ -8,9 +8,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         controller: "loginController",
         templateUrl: partialsDirectoryBase + "login.html"
     })
-    .when("/kitchen",
+    .when("/pantry",
     {
-        templateUrl: partialsDirectoryBase + "kitchen.html"
+        templateUrl: partialsDirectoryBase + "pantry.html"
     })
     .otherwise(
     {

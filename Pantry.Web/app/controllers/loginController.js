@@ -11,7 +11,7 @@
 
         authService.login($scope.loginData).then(function (response) {
 
-            $location.path('/kitchen');
+            $location.path('/pantry');
 
         },
          function (err) {

@@ -1,73 +1,79 @@
-﻿app.factory('authService', ['$http', '$q', 'localStorageService', '$location', function ($http, $q, localStorageService, $location) {
+﻿(function (app) {
 
-    var serviceBase = 'http://localhost:18396/';
-    var authServiceFactory = {};
+    app.factory('authService', [
+        '$http', '$q', 'localStorageService', '$location', function($http, $q, localStorageService, $location) {
 
-    var _authentication = {
-        isAuth: false,
-        userName: ""
-    };
+            var serviceBase = 'http://localhost:18396/';
+            var authServiceFactory = {};
 
-    var _saveRegistration = function (registration) {
+            var _authentication = {
+                isAuth: false,
+                userName: ""
+            };
 
-        _logOut();
+            var _saveRegistration = function(registration) {
 
-        return $http.post(serviceBase + 'api/accounts/register', registration).then(function (response) {
-            return response;
-        });
+                _logOut();
 
-    };
+                return $http.post(serviceBase + 'api/accounts/register', registration).then(function(response) {
+                    return response;
+                });
 
-    var _login = function (loginData) {
+            };
 
-        var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
+            var _login = function(loginData) {
 
-        var deferred = $q.defer();
+                var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
 
-        $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+                var deferred = $q.defer();
 
-            localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
+                $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function(response) {
 
-            _authentication.isAuth = true;
-            _authentication.userName = loginData.userName;
+                    localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
-            deferred.resolve(response);
+                    _authentication.isAuth = true;
+                    _authentication.userName = loginData.userName;
 
-        }).error(function (err, status) {
-            _logOut();
-            deferred.reject(err);
-        });
+                    deferred.resolve(response);
 
-        return deferred.promise;
+                }).error(function(err, status) {
+                    _logOut();
+                    deferred.reject(err);
+                });
 
-    };
+                return deferred.promise;
 
-    var _logOut = function () {
+            };
 
-        localStorageService.remove("authorizationData");
+            var _logOut = function() {
 
-        _authentication.isAuth = false;
-        _authentication.userName = "";
+                localStorageService.remove("authorizationData");
 
-        $location.path("/");
+                _authentication.isAuth = false;
+                _authentication.userName = "";
 
-    };
+                $location.path("/");
 
-    var _fillAuthData = function () {
+            };
 
-        var authData = localStorageService.get('authorizationData');
-        if (authData) {
-            _authentication.isAuth = true;
-            _authentication.userName = authData.userName;
+            var _fillAuthData = function() {
+
+                var authData = localStorageService.get('authorizationData');
+                if (authData) {
+                    _authentication.isAuth = true;
+                    _authentication.userName = authData.userName;
+                }
+
+            }
+
+            authServiceFactory.saveRegistration = _saveRegistration;
+            authServiceFactory.login = _login;
+            authServiceFactory.logOut = _logOut;
+            authServiceFactory.fillAuthData = _fillAuthData;
+            authServiceFactory.authentication = _authentication;
+
+            return authServiceFactory;
         }
+    ]);
 
-    }
-
-    authServiceFactory.saveRegistration = _saveRegistration;
-    authServiceFactory.login = _login;
-    authServiceFactory.logOut = _logOut;
-    authServiceFactory.fillAuthData = _fillAuthData;
-    authServiceFactory.authentication = _authentication;
-
-    return authServiceFactory;
-}]);
+})(pantryApp);

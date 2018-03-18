@@ -1,17 +1,23 @@
-﻿app.factory('recipesService', ['$http', function ($http) {
+﻿(function(app) {
 
-    var serviceBase = 'http://localhost:18396/';
-    var recipesServiceFactory = {};
+    app.factory('recipesService', [
+        '$http', function($http) {
 
-    var _getRecipes = function () {
+            var serviceBase = 'http://localhost:18396/';
+            var recipesServiceFactory = {};
 
-        return $http.get(serviceBase + 'api/recipes').then(function (results) {
-            return results;
-        });
-    };
+            var _getRecipes = function() {
 
-    recipesServiceFactory.getRecipes = _getRecipes;
+                return $http.get(serviceBase + 'api/recipes').then(function(results) {
+                    return results;
+                });
+            };
 
-    return recipesServiceFactory;
+            recipesServiceFactory.getRecipes = _getRecipes;
 
-}]);
+            return recipesServiceFactory;
+
+        }
+    ]);
+
+})(pantryApp);

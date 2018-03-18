@@ -1,10 +1,16 @@
-﻿app.controller('recipesController', ['$scope', 'recipesService', function ($scope, recipesService) {
+﻿(function (app) {
 
-    $scope.recipes = [];
+    app.controller('recipesController', [
+        '$scope', 'recipesService', function($scope, recipesService) {
 
-    recipesService.getRecipes().then(function (results) {
-        $scope.recipes = results.data;
-    }, function(error) {
+            $scope.recipes = [];
 
-    });
-}]);
+            recipesService.getRecipes().then(function(results) {
+                $scope.recipes = results.data;
+            }, function(error) {
+
+            });
+        }
+    ]);
+
+})(pantryApp);

@@ -1,30 +1,36 @@
-﻿app.controller('loginController', ['$scope', '$location', 'authService', function ($scope, $location, authService) {
+﻿(function(app) {
 
-    $scope.loginData = {
-        userName: "",
-        password: ""
-    };
+    app.controller('loginController', [
+        '$scope', '$location', 'authService', function($scope, $location, authService) {
 
-    $scope.message = "";
+            $scope.loginData = {
+                userName: "",
+                password: ""
+            };
 
-    $scope.login = function () {
+            $scope.message = "";
 
-        authService.login($scope.loginData).then(function (response) {
+            $scope.login = function() {
 
-            $location.path('/pantry');
+                authService.login($scope.loginData).then(function(response) {
 
-        },
-         function (err) {
-             $scope.message = err.error_description;
-         });
-    };
+                        $location.path('/pantry');
 
-    $scope.close = function () {
-        $scope.message = "";
-    };
+                    },
+                    function(err) {
+                        $scope.message = err.error_description;
+                    });
+            };
 
-    $scope.logOut = authService.logOut;
+            $scope.close = function() {
+                $scope.message = "";
+            };
 
-    $scope.authentication = authService.authentication;
+            $scope.logOut = authService.logOut;
 
-}]);
+            $scope.authentication = authService.authentication;
+
+        }
+    ]);
+
+})(pantryApp);

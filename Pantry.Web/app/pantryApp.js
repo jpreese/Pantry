@@ -1,37 +1,43 @@
-﻿var app = angular.module("pantryModule", ["ngRoute", "LocalStorageModule"]);
+﻿(function() {
 
-app.config(function($routeProvider, $locationProvider, $httpProvider) {
+    window.pantryApp = angular.module("pantryModule", ["ngRoute", "LocalStorageModule"]);
 
-    var partialsDirectoryBase = "/app/partials/";
-    $routeProvider.when("/",
-    {
-        controller: "loginController",
-        templateUrl: partialsDirectoryBase + "login.html"
-    })
-    .when("/pantry",
-    {
-        templateUrl: partialsDirectoryBase + "pantry.html"
-    })
-    .when("/recipes",
-    {
-        controller: "recipesController",
-        templateUrl: partialsDirectoryBase + "recipes.html"
-    })
-    .otherwise(
-    {
-        redirectTo: "/"
+    pantryApp.config(function($routeProvider, $locationProvider, $httpProvider) {
+
+        var partialsDirectoryBase = "/app/partials/";
+        $routeProvider.when("/",
+            {
+                controller: "loginController",
+                templateUrl: partialsDirectoryBase + "login.html"
+            })
+            .when("/pantry",
+            {
+                templateUrl: partialsDirectoryBase + "pantry.html"
+            })
+            .when("/recipes",
+            {
+                controller: "recipesController",
+                templateUrl: partialsDirectoryBase + "recipes.html"
+            })
+            .otherwise(
+            {
+                redirectTo: "/"
+            });
+
+        $locationProvider.html5Mode(
+        {
+            enabled: true,
+            requireBase: false
+        });
+
+        $httpProvider.interceptors.push('authInterceptorService');
     });
 
-    $locationProvider.html5Mode(
-    {
-        enabled: true,
-        requireBase: false
-    });
+    pantryApp.run([
+        'authService', function(authService) {
+            authService.fillAuthData();
+        }
+    ]);
 
-    $httpProvider.interceptors.push('authInterceptorService');
-});
-
-app.run(['authService', function (authService) {
-    authService.fillAuthData();
-}]);
+})();
 

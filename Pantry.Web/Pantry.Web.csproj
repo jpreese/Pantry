@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\partials\recipes.html" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\recipesService.js" />
@@ -83,7 +84,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\recipeController.js" />
     <Content Include="app\pantryApp.js" />
-    <Content Include="app\partials\kitchen.html" />
+    <Content Include="app\partials\pantry.html" />
     <Content Include="app\partials\login.html" />
     <Content Include="index.html" />
     <Content Include="scripts\angular-local-storage.js" />

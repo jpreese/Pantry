@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/recipes">Recipes</a>
+                        <a href="/recipes" data-ng-hide="!authentication.isAuth">Recipes</a>
                     </li>
                     <li>
                         <a href="/pantry" data-ng-hide="!authentication.isAuth">Your Pantry</a>

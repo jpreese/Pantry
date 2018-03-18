@@ -12,6 +12,11 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
     {
         templateUrl: partialsDirectoryBase + "pantry.html"
     })
+    .when("/recipes",
+    {
+        controller: "recipesController",
+        templateUrl: partialsDirectoryBase + "recipes.html"
+    })
     .otherwise(
     {
         redirectTo: "/"

@@ -10,7 +10,7 @@
         });
     };
 
-    recipesServiceFactory.getRecies = _getRecipes;
+    recipesServiceFactory.getRecipes = _getRecipes;
 
     return recipesServiceFactory;
 

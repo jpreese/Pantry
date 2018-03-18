@@ -1,5 +1,10 @@
 ﻿app.controller('recipesController', ['$scope', 'recipesService', function ($scope, recipesService) {
 
-    $scope.orders = [];
+    $scope.recipes = [];
 
+    recipesService.getRecipes().then(function (results) {
+        $scope.recipes = results.data;
+    }, function(error) {
+
+    });
 }]);

@@ -5,29 +5,23 @@
     pantryApp.config(function($routeProvider, $locationProvider, $httpProvider) {
 
         var partialsDirectoryBase = "/app/partials/";
-        $routeProvider.when("/",
-            {
-                controller: "loginController",
-                templateUrl: partialsDirectoryBase + "login.html"
-            })
-            .when("/pantry",
-            {
-                templateUrl: partialsDirectoryBase + "pantry.html"
-            })
-            .when("/recipes",
-            {
-                controller: "recipesController",
-                templateUrl: partialsDirectoryBase + "recipes.html"
-            })
-            .otherwise(
-            {
-                redirectTo: "/"
-            });
-
-        $locationProvider.html5Mode(
+        $routeProvider.when("/login",
         {
-            enabled: true,
-            requireBase: false
+            controller: "loginController",
+            templateUrl: partialsDirectoryBase + "login.html"
+        })
+        .when("/pantry",
+        {
+            templateUrl: partialsDirectoryBase + "pantry.html"
+        })
+        .when("/recipes",
+        {
+            controller: "recipesController",
+            templateUrl: partialsDirectoryBase + "recipes.html"
+        })
+        .otherwise(
+        {
+            redirectTo: "/login"
         });
 
         $httpProvider.interceptors.push('authInterceptorService');

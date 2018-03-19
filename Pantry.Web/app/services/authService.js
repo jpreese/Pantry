@@ -52,7 +52,7 @@
                 _authentication.isAuth = false;
                 _authentication.userName = "";
 
-                $location.path("/");
+                $location.path("/login");
 
             };
 

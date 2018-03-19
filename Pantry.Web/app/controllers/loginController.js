@@ -4,7 +4,7 @@
         '$scope', '$location', 'authService', function($scope, $location, authService) {
 
             $scope.loginData = {
-                userName: "",
+                userName: "",                               
                 password: ""
             };
 
@@ -27,9 +27,6 @@
             };
 
             $scope.logOut = authService.logOut;
-
-            $scope.authentication = authService.authentication;
-
         }
     ]);
 

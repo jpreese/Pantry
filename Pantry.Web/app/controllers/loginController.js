@@ -25,8 +25,6 @@
             $scope.close = function() {
                 $scope.message = "";
             };
-
-            $scope.logOut = authService.logOut;
         }
     ]);
 

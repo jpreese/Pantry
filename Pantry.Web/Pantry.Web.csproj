@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\config.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\partials\recipes.html" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -84,7 +85,7 @@
   <ItemGroup>
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\recipeController.js" />
-    <Content Include="app\pantryApp.js" />
+    <Content Include="app\app.js" />
     <Content Include="app\partials\pantry.html" />
     <Content Include="app\partials\login.html" />
     <Content Include="index.html" />

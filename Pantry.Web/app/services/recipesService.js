@@ -1,23 +1,22 @@
-﻿(function(app) {
+﻿(function () {
+    'use strict';
 
-    app.factory('recipesService', [
-        '$http', function($http) {
+    angular.module('app').factory('recipesService', [
+        '$http', 'serviceBase', function ($http, serviceBase) {
 
-            var serviceBase = 'http://localhost:18396/';
             var recipesServiceFactory = {};
 
-            var _getRecipes = function() {
+            var getRecipes = function() {
 
                 return $http.get(serviceBase + 'api/recipes').then(function(results) {
                     return results;
                 });
             };
 
-            recipesServiceFactory.getRecipes = _getRecipes;
+            recipesServiceFactory.getRecipes = getRecipes;
 
             return recipesServiceFactory;
-
         }
     ]);
 
-})(pantryApp);
+})();

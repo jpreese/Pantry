@@ -1,6 +1,7 @@
-﻿(function (app) {
+﻿(function () {
+    'use strict';
 
-    app.controller('recipesController', [
+    angular.module('app').controller('recipesController', [
         '$scope', 'recipesService', function($scope, recipesService) {
 
             $scope.recipes = [];
@@ -13,4 +14,4 @@
         }
     ]);
 
-})(pantryApp);
+})();

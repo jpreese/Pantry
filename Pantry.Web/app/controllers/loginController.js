@@ -1,6 +1,7 @@
-﻿(function(app) {
+﻿(function () {
+    'use strict';
 
-    app.controller('loginController', [
+    angular.module('app').controller('loginController', [
         '$scope', '$location', 'authService', function($scope, $location, authService) {
 
             $scope.loginData = {
@@ -28,4 +29,4 @@
         }
     ]);
 
-})(pantryApp);
+})();

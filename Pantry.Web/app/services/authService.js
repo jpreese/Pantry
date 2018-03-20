@@ -1,19 +1,30 @@
-﻿(function (app) {
+﻿(function () {
+    'use strict';
 
-    app.factory('authService', [
-        '$http', '$q', 'localStorageService', '$location', function($http, $q, localStorageService, $location) {
+    angular.module('app').factory('authService', [
+        '$http', '$q', 'localStorageService', '$location', 'serviceBase', function($http, $q, localStorageService, $location, serviceBase) {
 
-            var serviceBase = 'http://localhost:18396/';
             var authServiceFactory = {};
 
-            var _authentication = {
+            var authentication = {
                 isAuth: false,
                 userName: ""
             };
 
-            var _saveRegistration = function(registration) {
+            var logOut = function () {
 
-                _logOut();
+                localStorageService.remove('authorizationData');
+
+                authentication.isAuth = false;
+                authentication.userName = "";
+
+                $location.path("/login");
+
+            };
+
+            var saveRegistration = function(registration) {
+
+                logOut();
 
                 return $http.post(serviceBase + 'api/accounts/register', registration).then(function(response) {
                     return response;
@@ -21,7 +32,7 @@
 
             };
 
-            var _login = function(loginData) {
+            var login = function(loginData) {
 
                 var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
 
@@ -31,13 +42,13 @@
 
                     localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
-                    _authentication.isAuth = true;
-                    _authentication.userName = loginData.userName;
+                    authentication.isAuth = true;
+                    authentication.userName = loginData.userName;
 
                     deferred.resolve(response);
 
-                }).error(function(err, status) {
-                    _logOut();
+                }).error(function(err) {
+                    logOut();
                     deferred.reject(err);
                 });
 
@@ -45,35 +56,24 @@
 
             };
 
-            var _logOut = function() {
-
-                localStorageService.remove("authorizationData");
-
-                _authentication.isAuth = false;
-                _authentication.userName = "";
-
-                $location.path("/login");
-
-            };
-
-            var _fillAuthData = function() {
+            var fillAuthData = function() {
 
                 var authData = localStorageService.get('authorizationData');
                 if (authData) {
-                    _authentication.isAuth = true;
-                    _authentication.userName = authData.userName;
+                    authentication.isAuth = true;
+                    authentication.userName = authData.userName;
                 }
 
             }
 
-            authServiceFactory.saveRegistration = _saveRegistration;
-            authServiceFactory.login = _login;
-            authServiceFactory.logOut = _logOut;
-            authServiceFactory.fillAuthData = _fillAuthData;
-            authServiceFactory.authentication = _authentication;
+            authServiceFactory.saveRegistration = saveRegistration;
+            authServiceFactory.login = login;
+            authServiceFactory.logOut = logOut;
+            authServiceFactory.fillAuthData = fillAuthData;
+            authServiceFactory.authentication = authentication;
 
             return authServiceFactory;
         }
     ]);
 
-})(pantryApp);
+})();

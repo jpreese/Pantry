@@ -22,10 +22,6 @@
                         $scope.message = err.error_description;
                     });
             };
-
-            $scope.close = function() {
-                $scope.message = "";
-            };
         }
     ]);
 

@@ -7,7 +7,7 @@ namespace Pantry.Controllers
     [Authorize]
     public class RecipesController : ApiController
     {
-        private DataContext db = new DataContext();
+        private readonly DataContext db = new DataContext();
 
         public IHttpActionResult GetRecipe(int id)
         {

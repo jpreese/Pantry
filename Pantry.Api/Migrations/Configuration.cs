@@ -23,6 +23,9 @@ namespace Pantry.Migrations
             context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 4, Name = "Flour" });
             context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 5, Name = "Chocolate" });
             context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 6, Name = "Milk" });
+            context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 7, Name = "Vinegar" });
+            context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 8, Name = "Butter" });
+            context.Ingredient.AddOrUpdate(new Ingredient { IngredientId = 9, Name = "Chicken" });
 
             context.RecipeIngredient.AddOrUpdate(new RecipeIngredient { RecipeIngredientId = 1, RecipeId = 1, IngredientId = 1 });
             context.RecipeIngredient.AddOrUpdate(new RecipeIngredient { RecipeIngredientId = 2, RecipeId = 1, IngredientId = 4 });

@@ -15,7 +15,7 @@ namespace Pantry.Controllers
 
         public async Task<IHttpActionResult> Register(User userModel)
         {
-            var result = await _authRepository.RegisterUser(userModel);
+            var result = await _authRepository.RegisterUserAsync(userModel);
 
             return Ok();
         }

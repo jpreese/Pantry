@@ -29,7 +29,7 @@ namespace Pantry.Providers
                 Password = context.Password
             };
 
-            var user = await _authRepository.FindUser(userModel);
+            var user = await _authRepository.FindUserAsync(userModel);
             if (user == null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");

@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Pantry.Models;
+using Pantry.Entities;
 
 namespace Pantry.Context
 {

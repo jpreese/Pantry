@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Pantry.Models
+namespace Pantry.Entities
 {
     public class UserIngredient
     {

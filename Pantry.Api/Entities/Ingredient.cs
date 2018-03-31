@@ -1,4 +1,4 @@
-﻿namespace Pantry.Models
+﻿namespace Pantry.Entities
 {
     public class Ingredient
     {

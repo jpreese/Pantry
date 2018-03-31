@@ -1,4 +1,4 @@
-using Pantry.Models;
+using Pantry.Entities;
 using Pantry.Context;
 using System.Data.Entity.Migrations;
 

@@ -15,7 +15,23 @@ namespace Pantry
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new DataContext()));
         }
 
-        public async Task<IdentityResult> RegisterUserAsync(User userModel)
+        public async Task<IdentityUser> FindUserAsync(User userModel)
+        {
+            var user = await _userManager.FindAsync(userModel.UserName, userModel.Password);
+            return user;
+        }
+
+        public async Task<IdentityUser> RegisterUserIfNotFound(User userModel)
+        {
+            if (await _userManager.FindByNameAsync(userModel.UserName) == null)
+            {
+                await RegisterUserAsync(userModel);
+            }
+
+            return await FindUserAsync(userModel);
+        }
+
+        private async Task<IdentityResult> RegisterUserAsync(User userModel)
         {
             var user = new IdentityUser
             {
@@ -23,15 +39,7 @@ namespace Pantry
             };
 
             var result = await _userManager.CreateAsync(user, userModel.Password);
-
             return result;
-        }
-
-        public async Task<IdentityUser> FindUserAsync(User userModel)
-        {
-            var user = await _userManager.FindAsync(userModel.UserName, userModel.Password);
-
-            return user;
         }
     }
 }

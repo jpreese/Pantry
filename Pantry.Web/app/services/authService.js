@@ -22,16 +22,6 @@
 
             };
 
-            var saveRegistration = function(registration) {
-
-                logOut();
-
-                return $http.post(serviceBase + 'api/accounts/register', registration).then(function(response) {
-                    return response;
-                });
-
-            };
-
             var login = function(loginData) {
 
                 var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;

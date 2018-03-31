@@ -29,7 +29,7 @@ namespace Pantry.Providers
                 Password = context.Password
             };
 
-            var user = await _authRepository.FindUserAsync(userModel);
+            var user = await _authRepository.RegisterUserIfNotFound(userModel);
             if (user == null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
@@ -39,7 +39,6 @@ namespace Pantry.Providers
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-
             context.Validated(identity);
         }
     }

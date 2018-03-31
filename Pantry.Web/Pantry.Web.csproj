@@ -58,9 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\indexController.js" />
+    <Content Include="app\controllers\ingredientController.js" />
     <Content Include="app\partials\recipes.html" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\ingredientsService.js" />
     <Content Include="app\services\recipesService.js" />
     <Content Include="Content\bootstrap-social.css" />
     <Content Include="Content\font-awesome.css" />

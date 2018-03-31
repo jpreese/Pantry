@@ -1,4 +1,39 @@
 ﻿<div class="row">
-    <div class="col-lg-6">ingredient search</div>
-    <div class="col-lg-6">pantry list</div>
+
+    <div class="col-lg-6" data-ng-controller="ingredientController">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Ingredient</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="ingredient in ingredients">
+                    <td>{{ingredient.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-lg-6">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ingredient</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Column content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

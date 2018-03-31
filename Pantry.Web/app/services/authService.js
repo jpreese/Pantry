@@ -56,7 +56,6 @@
 
             }
 
-            authServiceFactory.saveRegistration = saveRegistration;
             authServiceFactory.login = login;
             authServiceFactory.logOut = logOut;
             authServiceFactory.fillAuthData = fillAuthData;

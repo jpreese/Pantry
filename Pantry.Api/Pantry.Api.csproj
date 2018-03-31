@@ -169,6 +169,7 @@
   <ItemGroup>
     <Compile Include="AuthRepository.cs" />
     <Compile Include="Context\DataContext.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\Ingredient.cs" />

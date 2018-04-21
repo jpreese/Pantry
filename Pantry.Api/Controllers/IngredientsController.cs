@@ -4,6 +4,7 @@ using Pantry.Context;
 
 namespace Pantry.Controllers
 {
+    [Authorize]
     public class IngredientsController : ApiController
     {
         private readonly DataContext _db = new DataContext();

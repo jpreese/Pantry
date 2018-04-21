@@ -6,6 +6,7 @@ using Pantry.Entities;
 
 namespace Pantry.Controllers
 {
+    [Authorize]
     public class PantryController : ApiController
     {
         private readonly DataContext _db = new DataContext();
@@ -24,7 +25,7 @@ namespace Pantry.Controllers
         public void PostIngredient(int id)
         {
             var currentUser = User.Identity.GetUserId();
-            var ingredient = new UserIngredient {IngredientId = id, UserId = currentUser};
+            var ingredient = new UserIngredient { IngredientId = id, UserId = currentUser };
             _db.UserIngredient.Add(ingredient);
             _db.SaveChanges();
         }

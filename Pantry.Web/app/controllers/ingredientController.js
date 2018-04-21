@@ -17,18 +17,6 @@
             }, function (error) {
 
             });
-
-            ingredientsService.getUserIngredients().then(function (results) {
-
-                var ingredientNames = $.map(results.data, function (e) {
-                    return e.name;
-                });
-
-                $scope.userIngredients = ingredientNames;
-
-            }, function (error) {
-
-            });
         }
     ]);
 })();

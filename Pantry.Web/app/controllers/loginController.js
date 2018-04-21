@@ -4,6 +4,10 @@
     angular.module('app').controller('loginController', [
         '$scope', '$location', 'authService', function($scope, $location, authService) {
 
+            if (authService.authentication.isAuth) {
+                $location.path('/pantry');
+            }
+
             $scope.loginData = {
                 userName: "",                               
                 password: ""

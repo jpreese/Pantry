@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app').controller('ingredientController', [
-        '$scope', 'ingredientsService', 'pantryService', function ($scope, ingredientsService, pantryService) {
+        '$scope', '$rootScope','ingredientsService', 'pantryService', function ($scope, $rootScope, ingredientsService, pantryService) {
 
             $scope.ingredients = [];
 
@@ -14,9 +14,12 @@
 
                 $("#ingredientList").autocomplete({
                     source: ingredientNames,
-                    select: function(event, ui) {
+                    select: function (event, ui) {
+
                         pantryService.postIngredient(ui.item.id);
                         $(this).val("");
+                        $rootScope.$broadcast('ingredient-added', ui.item.label);
+
                         return false;
                     }
                 });

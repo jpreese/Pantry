@@ -60,6 +60,7 @@
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\ingredientController.js" />
     <Content Include="app\controllers\pantryController.js" />
+    <Content Include="app\directives\autoCompleteDirective.js" />
     <Content Include="app\partials\recipes.html" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />

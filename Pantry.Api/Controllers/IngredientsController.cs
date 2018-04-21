@@ -8,7 +8,7 @@ namespace Pantry.Controllers
     {
         private readonly DataContext _db = new DataContext();
 
-        public IHttpActionResult Ingredients()
+        public IHttpActionResult GetIngredients()
         {
             if (_db.Ingredient.Any() == false)
             {

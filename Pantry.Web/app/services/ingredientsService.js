@@ -9,7 +9,12 @@
             var getIngredients = function () {
 
                 return $http.get(serviceBase + 'api/ingredients').then(function (results) {
-                    return results;
+
+                    var ingredients = $.map(results.data, function (e) {
+                        return { label: e.name, value: e.name, id: e.ingredientId };
+                    });
+
+                    return ingredients;
                 });
 
             };

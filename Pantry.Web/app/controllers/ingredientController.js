@@ -8,12 +8,8 @@
 
             ingredientsService.getIngredients().then(function (results) {
 
-                var ingredientNames = $.map(results.data, function (e) {
-                    return { label: e.name, value: e.name, id: e.ingredientId };
-                });
-
                 $("#ingredientList").autocomplete({
-                    source: ingredientNames,
+                    source: results,
                     select: function (event, ui) {
 
                         pantryService.postIngredient(ui.item.id);

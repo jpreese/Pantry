@@ -18,7 +18,6 @@
 
                         pantryService.postIngredient(ui.item.id);
                         $(this).val("");
-                        $rootScope.$broadcast('ingredient-added', ui.item.label);
 
                         return false;
                     }

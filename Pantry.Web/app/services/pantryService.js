@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app').factory('pantryService', [
-        '$http', 'serviceBase', function ($http, serviceBase) {
+        '$http', '$rootScope', 'serviceBase', function ($http, $rootScope, serviceBase) {
 
             var pantryServiceFactory = {};
 
@@ -13,7 +13,9 @@
             };
 
             var postIngredient = function (id) {
-                $http.post(serviceBase + 'api/pantry/' + id).success(function (data, status) { });
+                $http.post(serviceBase + 'api/pantry/' + id).success(function (data) {
+                    $rootScope.$broadcast('ingredient-added', data);
+                });
             }
 
             pantryServiceFactory.getPantry = getPantry;

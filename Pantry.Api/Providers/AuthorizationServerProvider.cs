@@ -38,6 +38,7 @@ namespace Pantry.Providers
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
             context.Validated(identity);
         }
     }

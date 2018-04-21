@@ -22,12 +22,15 @@ namespace Pantry.Controllers
             return Ok(ingredients);
         }
 
-        public void PostIngredient(int id)
+        public IHttpActionResult PostIngredient(int id)
         {
             var currentUser = User.Identity.GetUserId();
-            var ingredient = new UserIngredient { IngredientId = id, UserId = currentUser };
-            _db.UserIngredient.Add(ingredient);
+            var ingredient = _db.Ingredient.FirstOrDefault(i => i.IngredientId == id);
+
+            _db.UserIngredient.Add(new UserIngredient { IngredientId = id, UserId = currentUser });
             _db.SaveChanges();
+
+            return Ok(ingredient);
         }
     }
 }

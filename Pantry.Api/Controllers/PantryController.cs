@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Pantry.Context;
+using Pantry.Entities;
 
 namespace Pantry.Controllers
 {
@@ -18,6 +19,14 @@ namespace Pantry.Controllers
                 .Select(i => i.Ingredient);
 
             return Ok(ingredients);
+        }
+
+        public void PostIngredient(int id)
+        {
+            var currentUser = User.Identity.GetUserId();
+            var ingredient = new UserIngredient {IngredientId = id, UserId = currentUser};
+            _db.UserIngredient.Add(ingredient);
+            _db.SaveChanges();
         }
     }
 }

@@ -5,6 +5,7 @@
         '$scope', 'ingredientsService', function ($scope, ingredientsService) {
 
             $scope.ingredients = [];
+            $scope.userIngredients = [];
 
             ingredientsService.getIngredients().then(function (results) {
 

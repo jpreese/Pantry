@@ -6,15 +6,22 @@
 
             var ingredientsServiceFactory = {};
 
-            var getIngredients = function () {
+            var getIngredients = function() {
 
-                return $http.get(serviceBase + 'api/ingredients').then(function (results) {
+                return $http.get(serviceBase + 'api/ingredients').then(function(results) {
                     return results;
                 });
 
-            }
+            };
+
+            var getUserIngredients = function(id) {
+                return $http.get(serviceBase + 'api/ingredients/' + id).then(function(results) {
+                    return results;
+                });
+            };
 
             ingredientsServiceFactory.getIngredients = getIngredients;
+            ingredientsServiceFactory.getUserIngredients = getUserIngredients;
 
             return ingredientsServiceFactory;
         }

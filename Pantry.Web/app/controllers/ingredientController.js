@@ -7,7 +7,12 @@
             $scope.ingredients = [];
 
             ingredientsService.getIngredients().then(function (results) {
-                $scope.ingredients = results.data;
+
+                var ingredientNames = $.map(results.data, function(e) {
+                    return e.name;
+                });
+
+                $("#ingredientList").autocomplete({ source: ingredientNames });
             }, function (error) {
 
             });

@@ -8,7 +8,7 @@
 
             var getPantry = function () {
                 return $http.get(serviceBase + 'api/pantry').then(function (results) {
-                    return results;
+                    return results.data;
                 });
             };
 

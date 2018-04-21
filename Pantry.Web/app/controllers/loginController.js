@@ -2,29 +2,29 @@
     'use strict';
 
     angular.module('app').controller('loginController', [
-        '$scope', '$location', 'authService', function($scope, $location, authService) {
+        '$scope', '$location', 'authService', function ($scope, $location, authService) {
 
             if (authService.authentication.isAuth) {
                 $location.path('/pantry');
             }
 
             $scope.loginData = {
-                userName: "",                               
+                userName: "",
                 password: ""
             };
 
             $scope.message = "";
 
-            $scope.login = function() {
+            $scope.login = function () {
 
-                authService.login($scope.loginData).then(function(response) {
+                authService.login($scope.loginData).then(function (response) {
 
-                        $location.path('/pantry');
+                    $location.path('/pantry');
 
-                    },
-                    function(err) {
-                        $scope.message = err.error_description;
-                    });
+                },
+                function (err) {
+                    $scope.message = err.error_description;
+                });
             };
         }
     ]);

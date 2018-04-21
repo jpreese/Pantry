@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('app').factory('authInterceptorService', [
-        '$q', '$location', 'localStorageService', function($q, $location, localStorageService) {
+        '$q', '$location', 'localStorageService', function ($q, $location, localStorageService) {
 
             var authInterceptorServiceFactory = {};
 
-            var request = function(config) {
+            var request = function (config) {
 
                 config.headers = config.headers || {};
 
@@ -18,7 +18,7 @@
                 return config;
             }
 
-            var responseError = function(rejection) {
+            var responseError = function (rejection) {
                 if (rejection.status === 401) {
                     $location.path('/login');
                 }

@@ -6,9 +6,9 @@
 
             var ingredientsServiceFactory = {};
 
-            var getIngredients = function() {
+            var getIngredients = function () {
 
-                return $http.get(serviceBase + 'api/ingredients').then(function(results) {
+                return $http.get(serviceBase + 'api/ingredients').then(function (results) {
                     return results;
                 });
 

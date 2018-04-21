@@ -6,9 +6,9 @@
 
             var recipesServiceFactory = {};
 
-            var getRecipes = function() {
+            var getRecipes = function () {
 
-                return $http.get(serviceBase + 'api/recipes').then(function(results) {
+                return $http.get(serviceBase + 'api/recipes').then(function (results) {
                     return results;
                 });
 

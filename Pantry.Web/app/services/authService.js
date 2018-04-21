@@ -8,7 +8,8 @@
 
             var authentication = {
                 isAuth: false,
-                userName: ""
+                userName: "",
+                userId: ""
             };
 
             var logOut = function () {
@@ -34,6 +35,7 @@
 
                     authentication.isAuth = true;
                     authentication.userName = loginData.userName;
+                    authentication.userId = response.userId;
 
                     deferred.resolve(response);
 
@@ -52,6 +54,7 @@
                 if (authData) {
                     authentication.isAuth = true;
                     authentication.userName = authData.userName;
+                    authentication.userId = authData.userId;
                 }
 
             }

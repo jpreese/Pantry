@@ -8,17 +8,9 @@
     <div class="col-lg-6">
         <h4>Your Pantry</h4>
         <ul class="list-group">
-            <li class="list-group-item">
+            <li class="list-group-item" data-ng-repeat="ingredient in userIngredients">
                 <span class="badge"><i class="fa fa-times"></i></span>
-                Salt
-            </li>
-            <li class="list-group-item">
-                <span class="badge"><i class="fa fa-times"></i></span>
-                Pepper
-            </li>
-            <li class="list-group-item">
-                <span class="badge"><i class="fa fa-times"></i></span>
-                Flour
+                {{ingredient}}
             </li>
         </ul>
     </div>

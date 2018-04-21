@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app').factory('ingredientsService', [
-        '$http', 'serviceBase', function ($http, serviceBase) {
+        '$http', 'serviceBase', 'localStorageService', function ($http, serviceBase, localStorageService) {
 
             var ingredientsServiceFactory = {};
 
@@ -14,8 +14,9 @@
 
             };
 
-            var getUserIngredients = function(id) {
-                return $http.get(serviceBase + 'api/ingredients/' + id).then(function(results) {
+            var getUserIngredients = function () {
+                var id = localStorageService.get('authorizationData').userId;
+                return $http.get(serviceBase + 'api/ingredients?userId=' + id).then(function(results) {
                     return results;
                 });
             };

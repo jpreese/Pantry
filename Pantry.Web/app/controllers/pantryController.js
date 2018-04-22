@@ -10,11 +10,18 @@
                 $scope.pantry.push(ingredient);
             });
 
-            pantryService.getPantry().then(function (results) {
-                $scope.pantry = results;
-            }, function (error) {
-
+            $scope.$on('ingredient-deleted', function(event, ingredient) {
+                var index = $scope.pantry.indexOf(ingredient);
+                $scope.pantry.splice(index, 1);
             });
+
+            pantryService.getPantry().then(function(results) {
+                $scope.pantry = results;
+            });
+
+            $scope.deleteIngredient = function(id) {
+                pantryService.deleteIngredient(id);
+            }
         }
     ]);
 })();

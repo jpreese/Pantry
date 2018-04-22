@@ -18,8 +18,15 @@
                 });
             }
 
+            var deleteIngredient = function(id) {
+                $http.delete(serviceBase + 'api/pantry/' + id).success(function (data) {
+                    $rootScope.$broadcast('ingredient-deleted', data);
+                });
+            }
+
             pantryServiceFactory.getPantry = getPantry;
             pantryServiceFactory.postIngredient = postIngredient;
+            pantryServiceFactory.deleteIngredient = deleteIngredient;
 
             return pantryServiceFactory;
         }

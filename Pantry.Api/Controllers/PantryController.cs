@@ -32,5 +32,17 @@ namespace Pantry.Controllers
 
             return Ok(ingredient);
         }
+
+        public IHttpActionResult DeleteIngredient(int id)
+        {
+            var currentUser = User.Identity.GetUserId();
+            var ingredient = _db.Ingredient.FirstOrDefault(i => i.IngredientId == id);
+            var userIngredient = _db.UserIngredient.FirstOrDefault(ui => ui.IngredientId == id && ui.UserId == currentUser);
+
+            _db.UserIngredient.Remove(userIngredient);
+            _db.SaveChanges();
+
+            return Ok(ingredient);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').controller('recipesController', [
+    angular.module('app').controller('recipeController', [
         '$scope', 'recipesService', function ($scope, recipesService) {
 
             $scope.recipes = [];

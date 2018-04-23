@@ -17,7 +17,7 @@
             })
             .when('/recipes',
             {
-                controller: 'recipesController',
+                controller: 'recipeController',
                 templateUrl: partialsDirectoryBase + "recipes.html"
             })
             .otherwise(

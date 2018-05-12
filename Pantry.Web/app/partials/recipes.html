@@ -1,14 +1,10 @@
 ﻿<div class="row">
 
-    <div class="col-lg-6">
-        <input type="text" id="recipes" class="form-control" placeholder="Search Recipes" />
-    </div>
-
     <div class="col-lg-6" data-ng-controller="recipeController">
         <h4>Recipes</h4>
         <ul class="list-group">
             <li class="list-group-item" data-ng-repeat="recipe in recipes">
-                {{recipe.name}}
+                <a ng-href="http://www.bigoven.com/recipe/{{recipe.webId}}" target="_blank">{{recipe.name}}</a>
             </li>
         </ul>
     </div>

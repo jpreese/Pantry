@@ -7,7 +7,6 @@
             $scope.recipes = [];
 
             recipesService.getRecipes().then(function (results) {
-                debugger;
                 $scope.recipes = results.data;
             }, function (error) {
 
